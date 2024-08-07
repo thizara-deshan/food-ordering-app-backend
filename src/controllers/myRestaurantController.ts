@@ -6,7 +6,6 @@ import mongoose from "mongoose";
 const getMyRestaurants = async (req: Request, res: Response) => {
   try {
     const restaurant = await Restaurant.findOne({ user: req.userId });
-    console.log(req.userId);
     if (!restaurant) {
       return res.status(404).json({ message: "restaurant not found" });
     }
